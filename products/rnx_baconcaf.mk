@@ -6,10 +6,10 @@ TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
 # Inherit some common Slim stuff.
-$(call inherit-product, vendor/slim/configs/common_full_phone.mk)
+$(call inherit-product, vendor/rnx/configs/common_full_phone.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/slim/configs/nfc_enhanced.mk)
+$(call inherit-product, vendor/rnx/configs/nfc_enhanced.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/oneplus/baconcaf/full_baconcaf.mk)
