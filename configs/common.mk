@@ -204,3 +204,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 EXTENDED_POST_PROCESS_PROPS := vendor/rnx/tools/rnx_process_props.py
 
+SM_VENDOR := $(ANDROID_BUILD_TOP)/vendor/sm
+include $(SM_VENDOR)/Main.mk
+
