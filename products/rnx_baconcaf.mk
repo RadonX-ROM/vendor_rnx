@@ -1,38 +1,27 @@
-PRODUCT_PROPERTY_OVERRIDES += \
-    drm.service.enabled=true
+# Release name
+PRODUCT_RELEASE_NAME := bacon
 
-# Inherit AOSP device configuration for bacon.
-$(call inherit-product, device/oneplus/baconcaf/full_baconcaf.mk)
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
 
-# Inherit common product files.
-$(call inherit-product, vendor/rnx/products/common.mk)
-
-# Telephony
-$(call inherit-product, vendor/rnx/configs/telephony.mk)
+# Inherit some common Slim stuff.
+$(call inherit-product, vendor/slim/configs/common_full_phone.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/rnx/configs/nfc_enhanced.mk)
+$(call inherit-product, vendor/slim/configs/nfc_enhanced.mk)
 
-# Inherit common build.prop overrides
--include vendor/rnx/products/common_versions.mk
+# Inherit device configuration
+$(call inherit-product, device/oneplus/bacon/full_bacon.mk)
 
-# Copy hammerhead specific prebuilt files
-PRODUCT_COPY_FILES +=  \
-    vendor/rnx/proprietary/tuna/media/bootanimation.zip:system/media/bootanimation.zip \
-    vendor/rnx/proprietary/tuna/media/audio/notifications/Nexus.mp3:system/media/audio/notifications/Nexus.mp3 \
-    vendor/rnx/proprietary/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
-    vendor/rnx/proprietary/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
-
-# Inherit drm blobs
--include vendor/rnx/products/common_drm.mk
-
-# Setup device specific product configuration.
-PRODUCT_NAME := rnx_baconcaf
-PRODUCT_BRAND := oneplus
+## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := baconcaf
-PRODUCT_MODEL := A0001
-PRODUCT_MANUFACTURER := OnePlus
-PRODUCT_GMS_CLIENTID_BASE := android-oneplus
+PRODUCT_NAME := rnx_baconcaf
+PRODUCT_BRAND := Oneplus
+PRODUCT_MODEL := Oneplus One
+PRODUCT_MANUFACTURER := Oneplus
+
+
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=oneplus/bacon/A0001:5.1/LMY47O/YNG1TAS0YL:user/release-keys PRIVATE_BUILD_DESC="bacon-user 5.1 LMY47O YNG1TAS0YL release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=bacon BUILD_FINGERPRINT=oneplus/bacon/A0001:5.1/LMY47O/YNG1TAS0YL:user/release-keys PRIVATE_BUILD_DESC="bacon-user 5.1 LMY47O YNG1TAS0YL release-keys"
